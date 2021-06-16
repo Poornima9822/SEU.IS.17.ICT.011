@@ -17,8 +17,16 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::view('admin', 'admins');
 
-Route::post('adduser',[AdminController::class,'addadmin']);
-Route::view('fetch','fetchdata');
-Route::get('fetch',[AdminController::class,'getdata']);
+Route::post('adduser', [AdminController::class, 'addadmin']);
+
+
+Route::get('fetch', [AdminController::class, 'getdata']);
+
+Route::get('delete/{id}',[AdminController::class,'delete']);
+
+Route::get('edit/{id}', [AdminController::class, 'edit']);
+
+Route::post('/update', [AdminController::class, 'update']);
